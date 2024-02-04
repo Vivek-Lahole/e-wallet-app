@@ -14,13 +14,16 @@ export function RecentTransaction() {
           <p className="text-sm text-muted-foreground">jackson.lee@email.com</p>
         </div>
       </div>
-      <div className="flex items-center justify-between space-x-1">
-        <Button className="h-auto w-16 bg-success hover:bg-success hover:scale-90 transition ease-out">
+      <div className="flex items-center justify-between space-x-1 ">
+        <Button
+          className="h-auto w-16 text-success hover:text-success"
+          variant={"outline"}
+        >
           Request
         </Button>
         <Button
-          className="h-auto w-16 hover:scale-90 transition ease-out"
-          variant={"destructive"}
+          className="h-auto w-16 text-red-500 hover:text-red-500"
+          variant={"outline"}
         >
           Pay
         </Button>

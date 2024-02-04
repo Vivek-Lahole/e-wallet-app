@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  // unique id 
+  id String @id @default(uuid())
+
+  // User information
+  email     String  @unique
+  firstName String
+  lastName  String
+  imageURL  String?
+  role      Role    @default(USER)
+
+  // Credential schema
+  salt         String
+  passwordHash String
+
+  // wallet information
+  wallet   Wallet @relation(fields: [walletId], references: [id])
+  walletId String @unique
+
+  // meta-data
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Wallet {
+  // wallet information
+  id String @id @default(uuid())
+
+  amount    Int      @default(1000)
+  decimal   Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User?
+
+  // tarnsaction information
+  transactions Transaction[]
+}
+
+enum State {
+  REJECT
+  APPROVED
+  PENDING
+}
+
+enum TransactionType {
+  REQUEST
+  PAY
+}
+
+model Transaction {
+  id   String          @default(uuid())
+  type TransactionType
+
+  amount  Int @default(0)
+  decimal Int @default(0)
+
+  wallet   Wallet @relation(fields: [walletId], references: [id])
+  walletId String @unique
+
+  senderId   String
+  receiverId String
+  state      State?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

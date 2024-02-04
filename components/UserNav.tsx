@@ -65,7 +65,7 @@ export function UserNav() {
           <span>Buy me a coffee..</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="focus:bg-red-900">
+        <DropdownMenuItem className="focus:text-red-500">
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>

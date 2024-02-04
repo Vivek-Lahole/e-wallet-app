@@ -14,7 +14,7 @@ const greetings = ["Hello", "Namaste", "Bonjour", "Hola", "Ciao", "Hallo"];
 
 const dashboard = () => {
   return (
-    <ScrollArea className="h-full">
+    <ScrollArea className="h-full overflow-y-auto">
       <div className="flex-1 space-y-4 p-4 md:pt-8 pt-6">
         <h2 className="text-3xl font-bold tracking-tight px-1">
           {greetings[Math.floor(Math.random() * greetings.length)]} {"Vivek"}{" "}
@@ -22,7 +22,7 @@ const dashboard = () => {
         </h2>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 p-4">
-        <Card className="bg-primary/10">
+        <Card className="hover:bg-secondary">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-lg font-medium">Balance</CardTitle>
             <svg
@@ -42,13 +42,13 @@ const dashboard = () => {
             <div className="text-2xl font-bold">$45,231.89</div>
             <Button
               variant={"outline"}
-              className="hover:scale-90 transition ease-out  bg-success hover:bg-success"
+              className="hover:scale-90 transition ease-out  text-success hover:text-success"
             >
               Add
             </Button>
           </CardContent>
         </Card>
-        <Card className="bg-primary/10">
+        <Card className="hover:bg-secondary">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-lg font-medium">Paid</CardTitle>
             <svg
@@ -70,13 +70,13 @@ const dashboard = () => {
             <div className="text-2xl font-bold">-$ 2350</div>
             <Button
               variant={"outline"}
-              className="hover:scale-90 transition ease-out  bg-success hover:bg-success"
+              className="hover:scale-90 transition ease-out  text-success hover:text-success"
             >
               History
             </Button>
           </CardContent>
         </Card>
-        <Card className="bg-primary/10">
+        <Card className="hover:bg-secondary">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-lg font-medium">Received</CardTitle>
             <svg
@@ -97,13 +97,13 @@ const dashboard = () => {
             <div className="text-2xl font-bold">+ 12,234</div>
             <Button
               variant={"outline"}
-              className="hover:scale-90 transition ease-out  bg-success hover:bg-success"
+              className="hover:scale-90 transition ease-out  text-success hover:text-success"
             >
               History
             </Button>
           </CardContent>
         </Card>
-        <Card className="bg-primary/10">
+        <Card className="hover:bg-secondary">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-lg font-medium">Friends</CardTitle>
             <svg
@@ -123,15 +123,15 @@ const dashboard = () => {
             <div className="text-2xl font-bold">+573</div>
             <Button
               variant={"outline"}
-              className="hover:scale-90 transition ease-out bg-success hover:bg-success"
+              className="hover:scale-90 transition ease-out text-success hover:text-success"
             >
               Add
             </Button>
           </CardContent>
         </Card>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-96 px-4">
-        <Card className="bg-primary/10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+        <Card className="hover:bg-secondary">
           <CardHeader>
             <CardTitle className="text-lg font-medium">
               Total Spent Distribuiton
@@ -141,7 +141,7 @@ const dashboard = () => {
             <LoadChart />
           </CardContent>
         </Card>
-        <Card className="bg-primary/10 w-full overflow-y-auto">
+        <Card className=" w-full overflow-y-auto h-96">
           <CardHeader>
             <CardTitle className="text-lg font-medium flex items-center justify-between">
               <span>Recent Transaction</span>
@@ -149,19 +149,19 @@ const dashboard = () => {
                 view more
               </span>
             </CardTitle>
-            <CardDescription>
-              You made 69 transaction in last month
-            </CardDescription>
-            <CardContent className="overflow-y-auto p-0">
-              <RecentTransaction />
-              <RecentTransaction />
-              <RecentTransaction />
-              <RecentTransaction />
-              <RecentTransaction />
-              <RecentTransaction />
-              <RecentTransaction />
-            </CardContent>
           </CardHeader>
+          <CardDescription className="px-3">
+            You made 69 transaction in last month
+          </CardDescription>
+          <CardContent className="overflow-y-auto p-3">
+            <RecentTransaction />
+            <RecentTransaction />
+            <RecentTransaction />
+            <RecentTransaction />
+            <RecentTransaction />
+            <RecentTransaction />
+            <RecentTransaction />
+          </CardContent>
         </Card>
       </div>
     </ScrollArea>
