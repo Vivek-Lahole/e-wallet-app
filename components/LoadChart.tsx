@@ -71,7 +71,7 @@ export function LoadChart() {
           axisLine={false}
           tickFormatter={(value: number) => `$${value}`}
         />
-        <Bar dataKey="total" fill="#adfa1d" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="total" fill="#ffffff" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );

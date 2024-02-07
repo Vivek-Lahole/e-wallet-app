@@ -44,8 +44,11 @@ model Wallet {
   // wallet information
   id String @id @default(uuid())
 
-  amount    Int      @default(1000)
-  decimal   Int      @default(0)
+  amount  Int @default(1000)
+  decimal Int @default(0)
+
+  paid      Int      @default(0)
+  received  Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   user      User?

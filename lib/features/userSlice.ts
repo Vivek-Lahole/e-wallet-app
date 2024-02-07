@@ -1,3 +1,4 @@
+"use client";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -14,5 +15,5 @@ const initialState: userState = {
 };
 
 export const user = createAsyncThunk("user", async () => {
-  const response = await axios.get("");
+  const response = await axios.get("/api/");
 });

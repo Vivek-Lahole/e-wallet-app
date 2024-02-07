@@ -134,14 +134,14 @@ const dashboard = () => {
         <Card className="hover:bg-secondary">
           <CardHeader>
             <CardTitle className="text-lg font-medium">
-              Total Spent Distribuiton
+              Transaction Distribuiton
             </CardTitle>
           </CardHeader>
           <CardContent>
             <LoadChart />
           </CardContent>
         </Card>
-        <Card className=" w-full overflow-y-auto h-96">
+        <Card className=" w-full h-full">
           <CardHeader>
             <CardTitle className="text-lg font-medium flex items-center justify-between">
               <span>Recent Transaction</span>
@@ -154,8 +154,6 @@ const dashboard = () => {
             You made 69 transaction in last month
           </CardDescription>
           <CardContent className="overflow-y-auto p-3">
-            <RecentTransaction />
-            <RecentTransaction />
             <RecentTransaction />
             <RecentTransaction />
             <RecentTransaction />
